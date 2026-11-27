@@ -109,7 +109,10 @@ fish_add_path ~/.opencode/bin
 # alias dcu="TERM=xterm-256color docker compose up"
 # alias dcd="TERM=xterm-256color docker compose down"
 #
-set -gx TERM xterm-256color
+# NOTE: do NOT force TERM here. Overriding it hides the real terminal's
+# capabilities (Alacritty's kitty keyboard protocol → Ctrl+Backspace,
+# extended keys in tmux). Let the terminal set TERM itself.
+# set -gx TERM xterm-256color
 # set -gx LANG en_US.UTF-8
 # set -gx LC_ALL en_US.UTF-8
 

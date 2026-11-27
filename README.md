@@ -71,5 +71,12 @@ sessions magenta). Needs a truecolour terminal; the rest is standard fish 4.x.
 
 - Alt = Meta in terminals and arrives as a leading `ESC`; `escape-time 50`
   keeps it snappy.
+- **`TERM` matters — never force it.** Alacritty must keep its own terminfo
+  entry (`TERM=alacritty`), which advertises the kitty keyboard protocol, so
+  tmux can pass modified keys such as Ctrl+Backspace through as CSI-u. Several
+  places used to clobber it (`alacritty.toml [env]`, a `set -gx TERM` in
+  `config.fish`, and the systemd user environment); all are now removed.
+  If a key seems stuck, check `echo $TERM` is `alacritty` (outside tmux) and
+  `tmux-256color` (inside), then test with `cat -v` / `fish_key_reader`.
 - Kitty-style shells can swallow some Alt keys — bind them in the terminal's
   own config first if a key doesn't reach tmux (`cat -v` is the quick test).
