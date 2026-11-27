@@ -15,21 +15,23 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 # ============================================================
 function fish_greeting
     # -- palette -------------------------------------------------
-    set -l frame (set_color 5f87af)      # steel blue frame
-    set -l dim   (set_color 6c6c6c)      # muted separators
-    set -l head  (set_color --bold ffaf5f)
-    set -l key   (set_color --bold 5fd7ff)   # panes
-    set -l wkey  (set_color --bold ffd75f)   # windows
-    set -l skey  (set_color --bold ff87d7)   # sessions
-    set -l rkey  (set_color --bold ff5f5f)   # destructive
-    set -l tip   (set_color --bold 87d787)   # green
-    set -l txt   (set_color d0d0d0)
-    set -l n     (set_color normal)
+    set -l frame (set_color 5f87af) # steel blue frame
+    set -l dim (set_color 6c6c6c) # muted separators
+    set -l head (set_color --bold ffaf5f)
+    set -l key (set_color --bold 5fd7ff) # panes
+    set -l wkey (set_color --bold ffd75f) # windows
+    set -l skey (set_color --bold ff87d7) # sessions
+    set -l rkey (set_color --bold ff5f5f) # destructive
+    set -l tip (set_color --bold 87d787) # green
+    set -l txt (set_color d0d0d0)
+    set -l n (set_color normal)
 
     # -- little helpers ------------------------------------------
     # pad a key label to a fixed column so descriptions line up
     function __row --no-scope-shadowing
-        set -l c $argv[1]; set -l k $argv[2]; set -l d $argv[3]
+        set -l c $argv[1]
+        set -l k $argv[2]
+        set -l d $argv[3]
         set -l width 24
         set -l pad (string pad -w $width --right "$k")
         printf '  %s│%s  %s%s%s%s\n' $frame $n $c $pad $n $txt$d
@@ -117,3 +119,11 @@ fish_add_path ~/.opencode/bin
 # set -gx LC_ALL en_US.UTF-8
 
 set -gx QT_QPA_PLATFORM "wayland;xcb"
+
+# Basic alias: directly replace tmux with shorter commands
+alias t='tmux'
+alias ta='tmux attach'
+alias tn='tmux new-session'
+
+# Pass parameters: e.g., `tls` lists all sessions
+alias tls='tmux list-sessions'

@@ -80,3 +80,5 @@ sessions magenta). Needs a truecolour terminal; the rest is standard fish 4.x.
   `tmux-256color` (inside), then test with `cat -v` / `fish_key_reader`.
 - Kitty-style shells can swallow some Alt keys — bind them in the terminal's
   own config first if a key doesn't reach tmux (`cat -v` is the quick test).
+- Ctrl+Backspace needs explicit Alacritty bindings (CSI-u); see
+  [`docs/ctrl-backspace.md`](docs/ctrl-backspace.md) for the full story.
