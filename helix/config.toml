@@ -1,0 +1,23 @@
+# theme="papercolor-dark"
+theme="custom"
+
+# [theme]
+# inherits = "papercolor-dark"
+# "ui.background" = "none" # Or "none" for terminal transparency
+
+[keys.normal]
+C-s = ":write"
+C-space = ":reload"
+"R" = ":reload-all"
+
+[keys.insert]
+# C-s = ":write"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "block"
+
+
+[editor.soft-wrap]
+enable = true

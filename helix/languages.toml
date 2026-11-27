@@ -1,0 +1,31 @@
+
+use-grammars = { except = [ "go", "gomod", "gotmpl", "gowork" ] }
+
+[[language]]
+name = "rust"
+
+
+# [language-server.rust-analyzer.config]
+# helix artifacts
+# cargo = { targetDir = "target/ra" }
+
+# formatter = { command = "rustfmt" } #, args = ["--emit", "stdout"] }
+
+
+# leptos 
+[language-server.rust-analyzer.config]
+cargo = { allFeatures = true }
+
+# [language-server.rust-analyzer.config.procMacro.ignored]
+# leptos_macro = [
+#     "server"
+# ]
+
+
+### ===*---
+# python
+# Configured debug adapter: None
+# Configured formatter: None
+
+
+# [[grammar]]

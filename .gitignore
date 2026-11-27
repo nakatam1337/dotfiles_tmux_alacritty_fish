@@ -1,0 +1,4 @@
+# backups / editor noise
+*.bak.*
+*.tmp
+.DS_Store
