@@ -126,6 +126,20 @@ mods = "Control|Shift"
 mode = "Vi"
 action = "ClearSelection"
 
+# Ctrl+Backspace / Ctrl+Delete: send CSI-u (kitty keyboard protocol) so tmux
+# and the app inside can tell them apart from plain Backspace/Delete. Apps
+# that don't request the protocol still get the modern xterm fallback,
+# which fish/zsh/bash bind to backward-kill-word by default.
+[[keyboard.bindings]]
+key = "Back"
+mods = "Control"
+chars = "\u001b[127;5u"
+
+[[keyboard.bindings]]
+key = "Delete"
+mods = "Control"
+chars = "\u001b[3;5~"
+
 [[keyboard.bindings]]
 key = "Key0"
 mods = "Control"
